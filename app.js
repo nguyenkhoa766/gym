@@ -654,7 +654,7 @@ function fileToBase64(file) {
 }
 
 async function callGeminiAPI(apiKey, base64Data, mimeType) {
-    const url = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent?key=${apiKey}`;
+    const url = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash-lite:generateContent?key=${apiKey}`;
 
     const prompt = `Analyze this InBody body composition report image. Extract these values and return ONLY a valid JSON object (no markdown, no code blocks, just raw JSON):
 
