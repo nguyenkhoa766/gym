@@ -543,6 +543,27 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
     color: var(--accent-red); font-size: 0.875rem;
 }
 
+/* ===== PWA INSTALL BUTTON ===== */
+.pwa-install-btn {
+    position: fixed; bottom: 24px; right: 24px; z-index: 9999;
+    padding: 14px 28px; border-radius: 100px;
+    background: var(--gradient-primary); color: #0a0a0f;
+    font-weight: 700; font-size: 1rem; font-family: var(--font);
+    box-shadow: 0 8px 30px rgba(0, 245, 160, 0.35);
+    display: flex; align-items: center; gap: 8px;
+    cursor: pointer; border: none;
+    animation: pwa-pulse 2s ease infinite;
+    transition: all 0.3s ease;
+}
+.pwa-install-btn:hover {
+    transform: translateY(-4px) scale(1.05);
+    box-shadow: 0 12px 40px rgba(0, 245, 160, 0.45);
+}
+@keyframes pwa-pulse {
+    0%, 100% { box-shadow: 0 8px 30px rgba(0, 245, 160, 0.35); }
+    50% { box-shadow: 0 8px 40px rgba(0, 245, 160, 0.55); }
+}
+
 
 /* ===== ANIMATIONS ===== */
 @keyframes fadeInUp {

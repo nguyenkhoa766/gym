@@ -1,0 +1,20 @@
+{
+    "name": "FitLife Pro — Tư Vấn Giảm Cân",
+    "short_name": "FitLife Pro",
+    "description": "Tư vấn dinh dưỡng và lịch tập giảm cân cá nhân hóa dựa trên chỉ số InBody",
+    "start_url": "./index.html",
+    "display": "standalone",
+    "background_color": "#0a0a0f",
+    "theme_color": "#00f5a0",
+    "orientation": "portrait-primary",
+    "icons": [
+        {
+            "src": "icon.svg",
+            "sizes": "any",
+            "type": "image/svg+xml",
+            "purpose": "any"
+        }
+    ],
+    "categories": ["health", "fitness"],
+    "lang": "vi"
+}

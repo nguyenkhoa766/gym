@@ -9,6 +9,12 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="index.css">
+    <link rel="manifest" href="manifest.json">
+    <meta name="theme-color" content="#00f5a0">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <link rel="apple-touch-icon" href="icon.svg">
+    <link rel="icon" href="icon.svg" type="image/svg+xml">
 </head>
 <body>
     <!-- ===== NAVIGATION ===== -->
@@ -529,5 +535,38 @@
     </footer>
 
     <script src="app.js"></script>
+    <script>
+    // PWA Install
+    let deferredPrompt;
+    const installBtn = document.createElement('button');
+    installBtn.id = 'pwa-install';
+    installBtn.className = 'pwa-install-btn';
+    installBtn.innerHTML = '📲 Cài App';
+    installBtn.style.display = 'none';
+    document.body.appendChild(installBtn);
+
+    window.addEventListener('beforeinstallprompt', (e) => {
+        e.preventDefault();
+        deferredPrompt = e;
+        installBtn.style.display = 'flex';
+    });
+
+    installBtn.addEventListener('click', async () => {
+        if (!deferredPrompt) return;
+        deferredPrompt.prompt();
+        const { outcome } = await deferredPrompt.userChoice;
+        if (outcome === 'accepted') installBtn.style.display = 'none';
+        deferredPrompt = null;
+    });
+
+    window.addEventListener('appinstalled', () => {
+        installBtn.style.display = 'none';
+    });
+
+    // Register Service Worker
+    if ('serviceWorker' in navigator) {
+        navigator.serviceWorker.register('./sw.js').catch(() => {});
+    }
+    </script>
 </body>
 </html>
