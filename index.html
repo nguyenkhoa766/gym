@@ -1,0 +1,533 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Tư vấn dinh dưỡng và lịch tập giảm cân cá nhân hóa dựa trên chỉ số InBody. Thực đơn hàng ngày và lịch tập 5 buổi/tuần khoa học.">
+    <title>FitLife Pro — Tư Vấn Giảm Cân Cá Nhân</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="index.css">
+</head>
+<body>
+    <!-- ===== NAVIGATION ===== -->
+    <nav id="main-nav">
+        <div class="nav-container">
+            <a href="#hero" class="nav-logo">
+                <span class="logo-icon">🔥</span>
+                <span class="logo-text">FitLife<span class="accent">Pro</span></span>
+            </a>
+            <div class="nav-links">
+                <a href="#stats" class="nav-link">Chỉ Số</a>
+                <a href="#meal-plan" class="nav-link">Thực Đơn</a>
+                <a href="#workout" class="nav-link">Lịch Tập</a>
+                <a href="#tips" class="nav-link">Mẹo Hay</a>
+                <a href="#ai-scan" class="nav-link nav-link-ai">🤖 AI Scan</a>
+            </div>
+            <button id="nav-toggle" class="nav-toggle" aria-label="Menu">
+                <span></span><span></span><span></span>
+            </button>
+        </div>
+    </nav>
+
+    <!-- ===== HERO SECTION ===== -->
+    <section id="hero" class="hero">
+        <div class="hero-particles" id="particles"></div>
+        <div class="hero-content">
+            <div class="hero-badge">📊 InBody 11/03/2026 | ⏰ 6h dậy · 7h30 đi làm · 18h ăn tối · 19:30 Gym · 23:30 ngủ</div>
+            <h1 class="hero-title">
+                Hành Trình <span class="gradient-text">Giảm Cân</span><br>
+                Khoa Học & Hiệu Quả
+            </h1>
+            <p class="hero-subtitle">
+                Chương trình cá nhân hóa dành riêng cho bạn — Mục tiêu giảm <strong>5.6 kg</strong> cân nặng, 
+                giảm <strong>6.7 kg</strong> mỡ, tăng <strong>1.1 kg</strong> cơ bắp.
+            </p>
+            <div class="hero-stats-row">
+                <div class="hero-stat">
+                    <span class="hero-stat-value" data-target="73.0">0</span>
+                    <span class="hero-stat-unit">kg</span>
+                    <span class="hero-stat-label">Cân nặng hiện tại</span>
+                </div>
+                <div class="hero-stat-arrow">→</div>
+                <div class="hero-stat target">
+                    <span class="hero-stat-value" data-target="67.4">0</span>
+                    <span class="hero-stat-unit">kg</span>
+                    <span class="hero-stat-label">Mục tiêu</span>
+                </div>
+            </div>
+            <a href="#meal-plan" class="cta-btn">
+                <span>Xem Thực Đơn</span>
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M7 17L17 7M17 7H7M17 7V17"/>
+                </svg>
+            </a>
+        </div>
+        <div class="hero-visual">
+            <div class="body-card">
+                <div class="body-card-header">
+                    <span class="body-card-icon">🏋️</span>
+                    <div>
+                        <div class="body-card-name">Nam, 22 tuổi</div>
+                        <div class="body-card-height">175 cm</div>
+                    </div>
+                </div>
+                <div class="body-card-score">
+                    <svg class="score-ring" viewBox="0 0 120 120">
+                        <circle cx="60" cy="60" r="52" fill="none" stroke="rgba(255,255,255,0.1)" stroke-width="8"/>
+                        <circle cx="60" cy="60" r="52" fill="none" stroke="url(#scoreGradient)" stroke-width="8" 
+                               stroke-dasharray="326.7" stroke-dashoffset="91.5" stroke-linecap="round"
+                               transform="rotate(-90 60 60)"/>
+                        <defs>
+                            <linearGradient id="scoreGradient" x1="0%" y1="0%" x2="100%" y2="0%">
+                                <stop offset="0%" stop-color="#00f5a0"/>
+                                <stop offset="100%" stop-color="#00d9f5"/>
+                            </linearGradient>
+                        </defs>
+                    </svg>
+                    <div class="score-text">
+                        <span class="score-number">72</span>
+                        <span class="score-total">/100</span>
+                    </div>
+                    <div class="score-label">Điểm InBody</div>
+                </div>
+                <div class="body-card-metrics">
+                    <div class="metric"><span class="metric-label">BMR</span><span class="metric-value">1,583 kcal</span></div>
+                    <div class="metric"><span class="metric-label">TDEE</span><span class="metric-value">~2,790 kcal</span></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== BODY STATS ===== -->
+    <section id="stats" class="section">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag">📈 Phân Tích Cơ Thể</span>
+                <h2 class="section-title">Chỉ Số Của Bạn</h2>
+                <p class="section-desc">Dựa trên kết quả đo InBody ngày 11/03/2026 tại 5 Sao Gym Plus</p>
+            </div>
+            
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <div class="stat-icon">⚖️</div>
+                    <div class="stat-info">
+                        <div class="stat-label">Cân nặng</div>
+                        <div class="stat-value-lg">73.0 <small>kg</small></div>
+                        <div class="stat-target">Mục tiêu: 67.4 kg <span class="badge badge-down">-5.6 kg</span></div>
+                    </div>
+                    <div class="stat-bar-container">
+                        <div class="stat-bar" data-progress="86" style="--bar-color: #f5a623;"></div>
+                    </div>
+                </div>
+                
+                <div class="stat-card">
+                    <div class="stat-icon">📊</div>
+                    <div class="stat-info">
+                        <div class="stat-label">BMI</div>
+                        <div class="stat-value-lg">23.8</div>
+                        <div class="stat-target">Bình thường <span class="badge badge-warn">Hơi cao</span></div>
+                    </div>
+                    <div class="stat-bar-container">
+                        <div class="stat-bar" data-progress="65" style="--bar-color: #f59e23;"></div>
+                    </div>
+                </div>
+                
+                <div class="stat-card">
+                    <div class="stat-icon">🔴</div>
+                    <div class="stat-info">
+                        <div class="stat-label">Tỷ lệ mỡ (PBF)</div>
+                        <div class="stat-value-lg">23.1 <small>%</small></div>
+                        <div class="stat-target">Cần giảm <span class="badge badge-down">-6.7 kg mỡ</span></div>
+                    </div>
+                    <div class="stat-bar-container">
+                        <div class="stat-bar" data-progress="75" style="--bar-color: #f54e42;"></div>
+                    </div>
+                </div>
+                
+                <div class="stat-card">
+                    <div class="stat-icon">💪</div>
+                    <div class="stat-info">
+                        <div class="stat-label">Cơ xương</div>
+                        <div class="stat-value-lg">31.9 <small>kg</small></div>
+                        <div class="stat-target">Cần tăng <span class="badge badge-up">+1.1 kg</span></div>
+                    </div>
+                    <div class="stat-bar-container">
+                        <div class="stat-bar" data-progress="78" style="--bar-color: #00f5a0;"></div>
+                    </div>
+                </div>
+                
+                <div class="stat-card">
+                    <div class="stat-icon">🫁</div>
+                    <div class="stat-info">
+                        <div class="stat-label">Mỡ nội tạng</div>
+                        <div class="stat-value-lg">Mức 6</div>
+                        <div class="stat-target">Bình thường <span class="badge badge-ok">OK</span></div>
+                    </div>
+                    <div class="stat-bar-container">
+                        <div class="stat-bar" data-progress="40" style="--bar-color: #00d9f5;"></div>
+                    </div>
+                </div>
+                
+                <div class="stat-card">
+                    <div class="stat-icon">🔥</div>
+                    <div class="stat-info">
+                        <div class="stat-label">Tỷ lệ eo-hông</div>
+                        <div class="stat-value-lg">0.90</div>
+                        <div class="stat-target">Cần giảm <span class="badge badge-warn">Hơi cao</span></div>
+                    </div>
+                    <div class="stat-bar-container">
+                        <div class="stat-bar" data-progress="60" style="--bar-color: #f5a623;"></div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Calorie Strategy -->
+            <div class="calorie-strategy">
+                <div class="strategy-header">
+                    <h3>🎯 Chiến Lược Calo Hàng Ngày</h3>
+                    <p>Thâm hụt ~500-700 kcal/ngày để giảm ~0.5 kg/tuần an toàn</p>
+                </div>
+                <div class="strategy-bars">
+                    <div class="strategy-item">
+                        <div class="strategy-label">
+                            <span>TDEE (tiêu hao)</span>
+                            <span class="strategy-value">~2,200 kcal</span>
+                        </div>
+                        <div class="strategy-bar-bg">
+                            <div class="strategy-bar" style="width: 100%; background: linear-gradient(90deg, #f5a623, #f54e42);"></div>
+                        </div>
+                    </div>
+                    <div class="strategy-item">
+                        <div class="strategy-label">
+                            <span>🎯 Mục tiêu nạp vào</span>
+                            <span class="strategy-value highlight">~1,800 kcal</span>
+                        </div>
+                        <div class="strategy-bar-bg">
+                            <div class="strategy-bar" style="width: 82%; background: linear-gradient(90deg, #00f5a0, #00d9f5);"></div>
+                        </div>
+                    </div>
+                    <div class="strategy-item">
+                        <div class="strategy-label">
+                            <span>Thâm hụt</span>
+                            <span class="strategy-value deficit">-400 kcal/ngày</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="macro-split">
+                    <div class="macro">
+                        <div class="macro-ring" style="--macro-color: #f54e42; --macro-pct: 30;">
+                            <span>30%</span>
+                        </div>
+                        <div class="macro-label">Protein</div>
+                        <div class="macro-grams">~135g</div>
+                    </div>
+                    <div class="macro">
+                        <div class="macro-ring" style="--macro-color: #f5a623; --macro-pct: 40;">
+                            <span>40%</span>
+                        </div>
+                        <div class="macro-label">Carbs</div>
+                        <div class="macro-grams">~180g</div>
+                    </div>
+                    <div class="macro">
+                        <div class="macro-ring" style="--macro-color: #00f5a0; --macro-pct: 30;">
+                            <span>30%</span>
+                        </div>
+                        <div class="macro-label">Fat</div>
+                        <div class="macro-grams">~60g</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== MEAL PLAN ===== -->
+    <section id="meal-plan" class="section section-dark">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag">🍽️ Thực Đơn 7 Ngày</span>
+                <h2 class="section-title">Kế Hoạch Ăn Uống</h2>
+                <p class="section-desc">
+                    Sáng & Trưa tự nấu với: cơm, trứng, ức gà, chuối, rau<br>
+                    Tối ăn nhà bác — ăn vừa phải, ưu tiên rau và protein
+                </p>
+            </div>
+
+            <div class="day-tabs" id="meal-tabs">
+                <button class="day-tab active" data-day="1">T2</button>
+                <button class="day-tab" data-day="2">T3</button>
+                <button class="day-tab" data-day="3">T4</button>
+                <button class="day-tab" data-day="4">T5</button>
+                <button class="day-tab" data-day="5">T6</button>
+                <button class="day-tab" data-day="6">T7</button>
+                <button class="day-tab" data-day="7">CN</button>
+            </div>
+
+            <div class="meals-container" id="meals-container">
+                <!-- Populated by JS -->
+            </div>
+
+            <div class="meal-notes">
+                <div class="note-card">
+                    <span class="note-icon">⏰</span>
+                    <div>
+                        <strong>Lịch ngày:</strong> 6:00 dậy → Bữa sáng 6:15 → 7:30 đi làm → 
+                        12:00 ăn trưa → 18:00 ăn tối nhà bác → 19:30 Gym → 21:00 về → 23:30 ngủ.
+                    </div>
+                </div>
+                <div class="note-card">
+                    <span class="note-icon">💡</span>
+                    <div>
+                        <strong>Bữa tối (18:00):</strong> Ăn cơm nhà bác, ưu tiên rau + thịt nạc, 
+                        giảm cơm 1 chén nhỏ. Ăn xong 19h → nghỉ 30 phút → 19:30 đến gym.
+                    </div>
+                </div>
+                <div class="note-card">
+                    <span class="note-icon">🏃</span>
+                    <div>
+                        <strong>Gym (19:30-21:00):</strong> Tập tạ 60 phút + chạy bộ 15-20 phút. 
+                        Về nhà tắm rửa, thư giãn, 23:30 ngủ đủ 6.5 tiếng.
+                    </div>
+                </div>
+                <div class="note-card">
+                    <span class="note-icon">💧</span>
+                    <div>
+                        <strong>Nước:</strong> Uống 2.5-3 lít/ngày. 
+                        1 ly khi dậy 6h, 1 ly trước mỗi bữa ăn, mang bình khi tập.
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== WORKOUT SCHEDULE ===== -->
+    <section id="workout" class="section">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag">🏋️ Lịch Tập 5 Buổi/Tuần · 19:30 — 21:00</span>
+                <h2 class="section-title">Chương Trình Tập Luyện</h2>
+                <p class="section-desc">
+                    Ưu tiên <strong>Ngực + Vai + Bụng</strong> + Chạy bộ — thiết kế cho bạn.<br>
+                    Kết hợp tập tạ bảo toàn cơ + Chạy bộ intervals đốt mỡ tối đa.
+                </p>
+            </div>
+
+            <div class="workout-method">
+                <div class="method-card">
+                    <div class="method-icon">🧬</div>
+                    <div class="method-info">
+                        <h4>Chest/Shoulder/Abs Focus Split</h4>
+                        <p>Chương trình 5 buổi/tuần ưu tiên phát triển ngực, vai và bụng. Chest được tập 2x/tuần, Shoulder 2x/tuần, Abs mỗi buổi. Kết hợp Legs + Full Body để cân bằng.</p>
+                    </div>
+                </div>
+                <div class="method-card">
+                    <div class="method-icon">🏃</div>
+                    <div class="method-info">
+                        <h4>Chạy bộ Intervals sau tập tạ</h4>
+                        <p>Bạn giỏi chạy bộ → thêm 15-20 phút chạy intervals sau tạ, 3 buổi/tuần. Nghiên cứu 2025: chạy intervals sau tạ đốt mỡ thêm 24 giờ nhờ afterburn effect (EPOC).</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="day-tabs" id="workout-tabs">
+                <button class="day-tab active" data-day="1">T2</button>
+                <button class="day-tab" data-day="2">T3</button>
+                <button class="day-tab rest-day" data-day="3">T4</button>
+                <button class="day-tab" data-day="4">T5</button>
+                <button class="day-tab" data-day="5">T6</button>
+                <button class="day-tab" data-day="6">T7</button>
+                <button class="day-tab rest-day" data-day="7">CN</button>
+            </div>
+
+            <div class="workout-container" id="workout-container">
+                <!-- Populated by JS -->
+            </div>
+
+            <div class="workout-principles">
+                <h3>📋 Nguyên Tắc Vàng</h3>
+                <div class="principles-grid">
+                    <div class="principle">
+                        <span class="principle-num">01</span>
+                        <h4>Progressive Overload</h4>
+                        <p>Tăng dần trọng lượng hoặc số rep mỗi tuần. Đây là yếu tố #1 để tăng cơ và giảm mỡ.</p>
+                    </div>
+                    <div class="principle">
+                        <span class="principle-num">02</span>
+                        <h4>RIR 1-3</h4>
+                        <p>Mỗi set tập cách failure 1-3 rep (Reps in Reserve). Đủ nặng để kích thích cơ nhưng tránh chấn thương.</p>
+                    </div>
+                    <div class="principle">
+                        <span class="principle-num">03</span>
+                        <h4>Nghỉ giữa set</h4>
+                        <p>Bài compound: nghỉ 2-3 phút. Bài isolation: nghỉ 60-90 giây. Đảm bảo hiệu suất tối đa.</p>
+                    </div>
+                    <div class="principle">
+                        <span class="principle-num">04</span>
+                        <h4>Ngủ 7-8 tiếng</h4>
+                        <p>Giấc ngủ là khi cơ bắp phục hồi và hormone tăng trưởng tiết ra. Thiếu ngủ = tăng cortisol = tích mỡ.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== TIPS ===== -->
+    <section id="tips" class="section section-dark">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag">💎 Mẹo Giảm Cân</span>
+                <h2 class="section-title">Bí Quyết Thành Công</h2>
+                <p class="section-desc">Những mẹo cá nhân hóa cho bạn dựa trên chỉ số InBody</p>
+            </div>
+
+            <div class="tips-grid">
+                <div class="tip-card">
+                    <div class="tip-number">01</div>
+                    <h3>Kiểm soát bữa tối</h3>
+                    <p>Ăn cơm nhà bác, hãy lấy rau và thịt/cá trước, sau đó mới lấy 1 chén cơm nhỏ. Nhai chậm, ăn trong 20 phút để não kịp nhận tín hiệu no.</p>
+                </div>
+                <div class="tip-card">
+                    <div class="tip-number">02</div>
+                    <h3>Protein mỗi bữa</h3>
+                    <p>Đảm bảo mỗi bữa có ít nhất 30-40g protein (2 quả trứng + 100g ức gà). Protein giữ cơ, tăng cảm giác no, và đốt calo khi tiêu hóa.</p>
+                </div>
+                <div class="tip-card">
+                    <div class="tip-number">03</div>
+                    <h3>Chuối = Pre-workout</h3>
+                    <p>Ăn 1 quả chuối 30 phút trước tập để có năng lượng tập tốt. Carb từ chuối giải phóng nhanh, giúp tập nặng hơn và đốt mỡ nhiều hơn.</p>
+                </div>
+                <div class="tip-card">
+                    <div class="tip-number">04</div>
+                    <h3>Giảm 6.7 kg mỡ thông minh</h3>
+                    <p>PBF 23.1% đang hơi cao. Với thâm hụt 400-500 kcal/ngày, bạn sẽ giảm ~0.5 kg/tuần. Cần khoảng 12-14 tuần để đạt mục tiêu 67.4 kg.</p>
+                </div>
+                <div class="tip-card">
+                    <div class="tip-number">05</div>
+                    <h3>Tăng 1.1 kg cơ</h3>
+                    <p>Cơ xương 31.9 kg cần tăng thêm. Tập tạ nặng + đủ protein (1.6-2g/kg) sẽ giúp tăng cơ ngay cả khi giảm mỡ (body recomposition).</p>
+                </div>
+                <div class="tip-card">
+                    <div class="tip-number">06</div>
+                    <h3>Theo dõi tiến trình</h3>
+                    <p>Cân mỗi sáng sau khi đi vệ sinh, lấy trung bình tuần. Đo InBody lại sau 4-6 tuần để điều chỉnh. Chụp ảnh tiến trình mỗi 2 tuần.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== TIMELINE ===== -->
+    <section id="timeline" class="section">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag">📅 Lộ Trình</span>
+                <h2 class="section-title">Kế Hoạch 12 Tuần</h2>
+            </div>
+            <div class="timeline">
+                <div class="timeline-item">
+                    <div class="timeline-marker active"></div>
+                    <div class="timeline-content">
+                        <h4>Tuần 1-2: Thích nghi</h4>
+                        <p>Làm quen chế độ ăn mới. Tập cường độ vừa phải, học kỹ thuật đúng. Mục tiêu: giảm 0.5-1 kg.</p>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-marker"></div>
+                    <div class="timeline-content">
+                        <h4>Tuần 3-6: Tăng tốc</h4>
+                        <p>Tăng trọng lượng tạ, thêm HIIT. Cơ thể bắt đầu thay đổi rõ rệt. Mục tiêu: giảm thêm 2-3 kg.</p>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-marker"></div>
+                    <div class="timeline-content">
+                        <h4>Tuần 7-10: Đỉnh cao</h4>
+                        <p>Cường độ tập cao nhất. Body recomposition diễn ra mạnh mẽ. Mục tiêu: giảm thêm 2 kg mỡ, tăng cơ.</p>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-marker"></div>
+                    <div class="timeline-content">
+                        <h4>Tuần 11-12: Hoàn thiện</h4>
+                        <p>Đo InBody lại. Đánh giá kết quả. Chuyển sang chế độ duy trì. Mục tiêu: đạt 67-68 kg, PBF &lt; 18%.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== GEMINI AI SCAN ===== -->
+    <section id="ai-scan" class="section">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag">🤖 Gemini AI</span>
+                <h2 class="section-title">Cập Nhật Chỉ Số Tự Động</h2>
+                <p class="section-desc">
+                    Chụp ảnh kết quả InBody mới → Gemini AI sẽ đọc và cập nhật tất cả chỉ số trên trang tự động.
+                </p>
+            </div>
+
+            <div class="ai-panel">
+                <div class="ai-api-key">
+                    <label for="gemini-key">🔑 Gemini API Key</label>
+                    <div class="ai-key-row">
+                        <input type="password" id="gemini-key" placeholder="Dán API key từ aistudio.google.com" autocomplete="off">
+                        <button id="save-key-btn" class="ai-btn-save">Lưu</button>
+                    </div>
+                    <p class="ai-key-hint">Lấy key miễn phí tại <a href="https://aistudio.google.com/apikey" target="_blank" rel="noopener">aistudio.google.com</a></p>
+                </div>
+
+                <div class="ai-upload-area" id="ai-upload-area">
+                    <input type="file" id="inbody-file" accept="image/*" hidden>
+                    <div class="ai-upload-content" id="ai-upload-content">
+                        <div class="ai-upload-icon">📸</div>
+                        <h4>Kéo thả ảnh InBody vào đây</h4>
+                        <p>hoặc <span class="ai-browse">chọn file</span> từ máy</p>
+                        <p class="ai-format">Hỗ trợ: JPG, PNG, WEBP (tối đa 10MB)</p>
+                    </div>
+                    <div class="ai-preview" id="ai-preview" hidden>
+                        <img id="ai-preview-img" alt="Preview">
+                        <button id="ai-remove-img" class="ai-remove-btn">✕</button>
+                    </div>
+                </div>
+
+                <button id="ai-analyze-btn" class="ai-analyze-btn" disabled>
+                    <span class="ai-analyze-text">🔍 Phân Tích Ảnh InBody</span>
+                    <span class="ai-analyze-loading" hidden>
+                        <span class="ai-spinner"></span> Đang phân tích...
+                    </span>
+                </button>
+
+                <div id="ai-result" class="ai-result" hidden>
+                    <div class="ai-result-header">
+                        <span>✅ Kết quả phân tích</span>
+                        <button id="ai-apply-btn" class="ai-apply-btn">Áp dụng lên trang</button>
+                    </div>
+                    <div id="ai-result-content" class="ai-result-content"></div>
+                </div>
+
+                <div id="ai-error" class="ai-error" hidden></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== FOOTER ===== -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <span class="logo-icon">🔥</span>
+                    <span class="logo-text">FitLife<span class="accent">Pro</span></span>
+                </div>
+                <p class="footer-disclaimer">
+                    ⚠️ Thông tin trên trang này chỉ mang tính chất tham khảo, không thay thế lời khuyên y tế chuyên nghiệp. 
+                    Hãy tham khảo ý kiến bác sĩ hoặc chuyên gia dinh dưỡng trước khi thay đổi chế độ ăn uống và tập luyện.
+                </p>
+                <p class="footer-copy">Được tạo với ❤️ cho hành trình giảm cân của bạn — 2026</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="app.js"></script>
+</body>
+</html>
