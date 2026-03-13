@@ -233,23 +233,30 @@ const workoutData = {
             note: 'Tempo run = chạy ở ngưỡng "khó nói chuyện". Cực kỳ hiệu quả đốt mỡ bụng.'
         }
     },
-    5: { // Thứ 6 — LEGS + ABS
+    5: { // Thứ 6 — BACK + ARMS + ABS + Running
         dayName: 'Thứ 6',
-        type: 'Legs + Abs',
-        typeVi: 'Chân + Bụng',
-        badge: 'STRENGTH',
-        icon: '🦵',
-        hasHIIT: false,
+        type: 'Back + Arms + Abs',
+        typeVi: 'Lưng + Tay + Bụng',
+        badge: 'STRENGTH + RUN',
+        icon: '💪',
+        hasHIIT: true,
         exercises: [
-            { name: 'Barbell Squat', sets: 4, reps: '8-10', rest: '3 phút', compound: true },
-            { name: 'Romanian Deadlift', sets: 4, reps: '8-10', rest: '2-3 phút', compound: true },
-            { name: 'Leg Press', sets: 3, reps: '10-12', rest: '2 phút', compound: true },
-            { name: 'Walking Lunge', sets: 3, reps: '12/chân', rest: '90 giây', compound: true },
-            { name: 'Leg Curl (máy)', sets: 3, reps: '12-15', rest: '60 giây', compound: false },
-            { name: 'Standing Calf Raise', sets: 4, reps: '15-20', rest: '60 giây', compound: false },
+            { name: 'Deadlift', sets: 4, reps: '6-8', rest: '3 phút', compound: true },
+            { name: 'Lat Pulldown', sets: 4, reps: '10-12', rest: '90 giây', compound: true },
+            { name: 'Seated Cable Row', sets: 3, reps: '10-12', rest: '90 giây', compound: true },
+            { name: 'Barbell Curl', sets: 3, reps: '10-12', rest: '60 giây', compound: false },
+            { name: 'Tricep Pushdown', sets: 3, reps: '12-15', rest: '60 giây', compound: false },
+            { name: 'Hammer Curl', sets: 3, reps: '12-15', rest: '60 giây', compound: false },
             { name: 'Hanging Knee Raise', sets: 3, reps: '15-20', rest: '60 giây', compound: false },
-            { name: 'Dead Bug', sets: 3, reps: '12/bên', rest: '45 giây', compound: false }
-        ]
+            { name: 'Plank', sets: 3, reps: '60 giây', rest: '45 giây', compound: false }
+        ],
+        hiit: {
+            name: '🏃 Chạy bộ Intervals',
+            protocol: '1 phút chạy nhanh (10 km/h) / 1 phút đi bộ (5.5 km/h)',
+            rounds: 8,
+            duration: '16 phút',
+            note: 'Chạy bộ = bài tập chân duy nhất. Đủ để giữ cơ chân và đốt mỡ hiệu quả.'
+        }
     },
     6: { // Thứ 7 — FULL BODY + Running
         dayName: 'Thứ 7',
